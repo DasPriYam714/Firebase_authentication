@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { AuthContext } from "../AuthProvider";
 
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext)
+
+
   const [successReg, setSuccessReg] = useState("");
   const [errorMess, setErrorMess] = useState("");
   const handleRegister = (e) => {
@@ -20,6 +25,18 @@ const Register = () => {
       setErrorMess("You need to use at least one special character.");
       return;
     }
+
+    // create user Firebase
+
+    createUser(email, password)
+    .then(result=>{
+        console.log(result.user)
+    })
+    .catch(error=>{
+        console.error(error);
+    })
+
+
   };
 
   return (
