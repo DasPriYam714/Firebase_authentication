@@ -5,7 +5,8 @@ import { AuthContext } from "../AuthProvider";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser} = useContext(AuthContext);
+    console.log(createUser)
 
 
   const [successReg, setSuccessReg] = useState("");
@@ -89,7 +90,7 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
               </div>
               <div className="mt-4">
                 Already have an account? Please{" "}
@@ -97,11 +98,12 @@ const Register = () => {
                   <Link to={"/login"}>Login</Link>
                 </span>
               </div>
-            </form>
-          </div>
-          {
+              {
                 errorMess && <p className="text-lg text-red-700">{errorMess}</p>
             }
+            </form>
+          </div>
+          
         </div>
       </div>
     </div>
