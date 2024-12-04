@@ -21,6 +21,13 @@ const Navbar = () => {
       <p className="px-3 text-lg text-blue-600">
         <NavLink to={"/order"}>Order</NavLink>
       </p>
+      {
+        user && 
+        <>
+        <NavLink className="px-3 text-lg text-blue-600" to={"/profile"}>Profile</NavLink>
+        <NavLink className="px-3 text-lg text-blue-600" to={"/dashboard"}>Dashboard</NavLink>
+        </>
+      }
     </>
   );
   return (
